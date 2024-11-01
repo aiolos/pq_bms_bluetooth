@@ -130,10 +130,10 @@ class BatteryInfo:
         self.batteryState = int.from_bytes(data[88:90][::-1], byteorder='big')
 
         ## Charge level
-        self.SOC = f"{int.from_bytes(data[90:92][::-1], byteorder='big')}"
+        self.SOC = int.from_bytes(data[90:92][::-1], byteorder='big')
 
         ## Battery Status ??
-        self.SOH = f"{int.from_bytes(data[92:96][::-1], byteorder='big')}"
+        self.SOH = int.from_bytes(data[92:96][::-1], byteorder='big')
 
         self.dischargesCount = int.from_bytes(data[96:100][::-1], byteorder='big')
 
