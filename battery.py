@@ -26,7 +26,7 @@ class BatteryInfo:
         self.voltage = None
         self.batteryPack: dict = {}
         self.current = None
-        self.remianAh = None
+        self.remainAh = None
         self.factoryAh = None
         self.cellTemperature = None
         self.mosfetTemperature = None
@@ -110,8 +110,8 @@ class BatteryInfo:
         self.current = int.from_bytes(data[48:52][::-1], byteorder='big')
 
         ## Remain Ah
-        remianAh = int.from_bytes(data[62:64][::-1], byteorder='big')
-        self.remianAh = round(remianAh/100, 2)
+        remainAh = int.from_bytes(data[62:64][::-1], byteorder='big')
+        self.remainAh = round(remainAh/100, 2)
 
         ## Factory Ah
         fccAh = int.from_bytes(data[64:66][::-1], byteorder='big')
@@ -143,7 +143,7 @@ class BatteryInfo:
 
     def parse_version(self, data):
         '''
-          Parse firmvware version from bytearray
+          Parse firmware version from bytearray
         '''
         start = data[8:]
         self.firmwareVersion = f"{int.from_bytes(start[0:2][::-1], byteorder='big')}.{int.from_bytes(start[2:4][::-1], byteorder='big')}.{int.from_bytes(start[4:6][::-1], byteorder='big')}"
