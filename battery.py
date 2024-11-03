@@ -90,8 +90,8 @@ class BatteryInfo:
         state = self.__dict__
         del state['_logger']
         del state['_request']
-        state['SOC'] = f"{self.SOC}%"
-        state['SOH'] = f"{self.SOH}%"
+        #state['SOC'] = f"{self.SOC}%"
+        #state['SOH'] = f"{self.SOH}%"
 
         return json.dumps(
             state,
